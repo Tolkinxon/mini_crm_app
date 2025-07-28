@@ -1,0 +1,98 @@
+table {
+	width: 100%;
+	max-height: 100%;
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+.table-heading {
+	display: flex;
+	justify-content: space-between;
+	font-size: 25px;
+	font-weight: 900;
+	text-transform: uppercase;
+	padding: 10px 20px;
+}
+
+table, td, th {
+	border-spacing: 0 15px;
+}
+
+table thead {
+	position: sticky;
+	top: -10px;
+	z-index: 1;
+}
+
+tbody tr:nth-child(even) {
+	color: black;
+	background-color: orange;
+	margin-bottom: 10px;
+}
+
+
+tbody tr:nth-child(odd) {
+	color: orange;
+	background-color: black;
+	margin-bottom: 5px;
+}
+
+th {
+	text-align: left;
+	background-color: #343A40;
+	color: white;
+	font-weight: 900;
+	text-transform: uppercase;	
+}
+
+th:first-child,
+td:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+th:last-child,
+td:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+td, th {
+	padding: 15px 15px;
+	max-width: 70px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+td a {
+	text-decoration: underline;
+	color: inherit;
+	font-size: inherit;
+}
+
+td button {
+	border-radius: 5px;
+	padding: 5px;
+	font-weight: inherit;
+	color: inherit;
+	background-color: inherit;
+	border-color: white;
+	border-width: 3px;
+	cursor: pointer;
+	font-size: inherit;
+}
+
+#tableSearch {
+	padding: 5px;
+	margin-left: 10px;
+	outline: none;
+	border:  none;
+	font-weight: bold;
+	background-color: transparent;
+	border-bottom: 1px solid black;
+}
+
+#tableSearch:focus{
+	border-color: black;
+}
