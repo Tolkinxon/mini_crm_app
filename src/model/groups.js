@@ -11,8 +11,8 @@ export const groups = async () => {
     INNER JOIN users u ON u.id=t.user_id;`);    
     let table = {
         N: groups.length,
-        'group name': groups.map((group) => ({type: "link", text: group.group_name, href: `/students?groupId=${group.id}`})),
-        'teacher': groups.map((group) => ({type: "link", text: group.teacher_full_name, href: `/groups?teacherId=${group.teacher_id}`})),
+        'group name': groups.map((group) => ({type: "link", text: group.group_name, href: `students?groupId=${group.id}&teacherId=${group.teacher_id}`})),
+        'teacher': groups.map((group) => ({type: "link", text: group.teacher_full_name, href: `groups?teacherId=${group.teacher_id}`})),
         'contact': groups.map((group) => ({type: "text", text: group.teacher_contact})),
         'username': groups.map((group) => ({type: "text", text: group.teacher_username})),
         'gender': groups.map((group) => ({type: "text", text: group.teacher_gender})),
