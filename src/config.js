@@ -1,22 +1,9 @@
-const host = 'localhost'
-const PORT = process.env.PORT || 4000
+import path from "path";
+import c from "config";
 
-const pgConfig = {
-	user: 'postgres',
-	host: 'localhost',
-	password: '2303',
-	database: 'student_score',
-	port: 5432
-}
-
-const secretTokenKey = 'SECRET'
-
-const cookieExpireTime = 1000 * 60 * 60
-
-module.exports = { 
-	cookieExpireTime,
-	secretTokenKey,
-	pgConfig,
-	PORT,
-	host,
+export const serverConfig = {
+    PORT: c.get("PORT") || 30000,
+    TOKEN_KEY: c.get('TOKEN_KEY'),
+    publicPath: () => path.join(process.cwd(), 'public'),
+    viewsPath: () => path.join(process.cwd(), 'src', 'views'),
 }

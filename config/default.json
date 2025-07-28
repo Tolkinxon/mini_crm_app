@@ -1,0 +1,9 @@
+{
+    "DB_PORT": "3306",
+    "DB_USERNAME": "root",
+    "DB_PASSWORD": "root",
+    "DB_DATABASE": "crm_database",
+    "DB_HOST": "localhost",
+    "PORT": 4000,
+    "TOKEN_KEY": "securitytokenkey"
+}

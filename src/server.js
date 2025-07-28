@@ -1,18 +1,22 @@
-const express = require('express')
-const ejs = require('ejs')
-const path = require('path')
-const { host, PORT } = require('./config.js')
-const app = express()
+import express from 'express';
+import path from 'path';
+import { serverConfig } from './config.js';
+import { mainRouter } from './routes/main.routes.js';
+import { viewsRouter } from './routes/views.routes.js';
+const { PORT, publicPath, viewsPath}  = serverConfig;
 
-// setting template engine
-app.engine('html', ejs.renderFile)
-app.set('view engine', 'html')
-app.set('views', path.join(__dirname, 'views'))
+const app = express();
+app.use(express.json());
+app.use(express.text());
+app.use(express.urlencoded({extended: true}));
+app.set('view engine', 'ejs');
+app.set('views', viewsPath());
+app.use(express.static(publicPath()));
 
-// third-party and build-in middlewares
-app.use( express.static(path.join(__dirname, 'public')) )
+app.use('/', viewsRouter);
+app.use("/api", mainRouter);
 
-// routes
-app.get('/', (req, res) => res.render('index.html'))
 
-app.listen(PORT, () => console.log('http://localhost:' + PORT))
+
+
+app.listen(PORT, () => console.log(`Server runnign on port ${PORT}`))

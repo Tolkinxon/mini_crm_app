@@ -15,9 +15,13 @@
 <body>
 
 	<div class="container">
-		<%- include('header.html') %>
+		<%- include('header.ejs') %>
 		<div id="mainWrapper">
-			<%- include('table.html') %>
+			<%- include('table.ejs', {table: {
+											N: 2,
+											ism: [ {type: 'link', text: "Farxod", href: '/hello'}, {type: 'link', text: "Doniyor", href: '/hello'} ],
+											familya: [ {type: 'link', text: "Mannopov", href: '/hello'}, {type: 'link', text: "Nasriddinov", href: '/hello'} ]
+									  }}) %>
 		</div>
 	</div>
 

@@ -1,0 +1,34 @@
+<div class="table-heading">
+	<span>Students: 10</span>
+	<span>Additional info</span>
+</div>
+<input id="tableSearch" type="text" placeholder="search in table..">
+<table>
+	<thead>
+		<% let keys = Object.keys(table); %>
+			<tr>
+				<% for(let index = 0; index<keys.length; index++){ %>
+					<th><%=keys[index] %></th>
+				<% } %>
+			</tr>
+	</thead>
+	<tbody id="tbodyElement">
+	<% let keysBody = Object.keys(table); %>
+		<% let rowCount = table[keysBody[0]]; %>
+		<% for(let i = 0; i<rowCount; i++){ %>
+			<tr>
+				<td><%=i+1 %></td>
+				<% for(let index = 1; index<keysBody.length; index++){ %>
+					<% let data = table[keysBody[index]][i] %>
+					<% if(data.type == "link"){ %>
+						<td><a href="/<%=data.href%>"><%=data.text %></a></td>
+					<% } else if(data.type == 'button'){ %>
+						<td><button><%=data.text %></button></td>
+					<% } else{ %>
+						<td><%=data.text || data %></td>
+					<% } %>
+				<% } %>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
