@@ -93,7 +93,7 @@ export const students = async (teacherId = 0, groupId = 0) => {
     return {
         links,
         route_name: `Talabalar`,
-        extra_info: teacherId ? await teacher.teacher_full_name : '',
+        extra_info: teacherId ? (await teacher.teacher_full_name) + "ning o'quvchilari" : '',
         html: "table.ejs",
         data:{table}
     }
