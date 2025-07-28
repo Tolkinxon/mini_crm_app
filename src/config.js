@@ -7,3 +7,9 @@ export const serverConfig = {
     publicPath: () => path.join(process.cwd(), 'public'),
     viewsPath: () => path.join(process.cwd(), 'src', 'views'),
 }
+
+export const links = [
+    {type: "link", text: "foydalanuvchilar", href: "/users"},
+    {type: "link", text: "ustozlar", href: "/teachers"},
+    {type: "link", text: "guruhlar", groups: "/groups"}
+]
